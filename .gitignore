@@ -1,0 +1,20 @@
+# Build artifacts
+build/
+reroute
+reroute.exe
+*.o
+*.obj
+*.exe
+*.pdb
+*.ilk
+
+# Visual Studio / IDE
+.vs/
+.vscode/
+*.user
+CMakeFiles/
+CMakeCache.txt
+
+# Generated at runtime (regenerate by running the binary)
+results.json
+dashboard/results.json

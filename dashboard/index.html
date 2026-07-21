@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<title>ReRoute — Incrementale vs Naive</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 900px; margin: 40px auto; background:#111; color:#eee; }
+  h1 { font-size: 1.4rem; }
+  #chart-wrap { background:#1b1b1b; padding: 20px; border-radius: 8px; }
+  p.note { color:#999; font-size: 0.85rem; }
+</style>
+</head>
+<body>
+  <h1>ReRoute — tempo di risposta: incrementale vs naive</h1>
+  <p class="note">
+    Esegui ./reroute, copia il results.json generato in questa cartella, poi apri
+    questa pagina tramite un server locale (es. <code>python3 -m http.server</code>)
+    per evitare i blocchi CORS del protocollo file://.
+  </p>
+  <div id="chart-wrap">
+    <canvas id="chart" height="120"></canvas>
+  </div>
+  <script>
+    // Try results.json next to this page first, then fall back to the
+    // project root (in case it wasn't copied into dashboard/ yet).
+    async function loadResults() {
+      for (const path of ['results.json', '../results.json']) {
+        try {
+          const r = await fetch(path);
+          if (r.ok) return r.json();
+        } catch (e) { /* try next path */ }
+      }
+      throw new Error('results.json non trovato né in dashboard/ né nella cartella del progetto');
+    }
+
+    loadResults()
+      .then(data => {
+        const labels = data.map(d => d.disruptionScale);
+        new Chart(document.getElementById('chart'), {
+          type: 'line',
+          data: {
+            labels,
+            datasets: [
+              { label: 'Naive (full resolve)', data: data.map(d => d.naiveTimeMs), borderColor: '#e05d5d', tension: 0.2 },
+              { label: 'Incrementale', data: data.map(d => d.incrementalTimeMs), borderColor: '#5db8e0', tension: 0.2 }
+            ]
+          },
+          options: {
+            scales: {
+              x: { title: { display: true, text: 'Numero di task coinvolti nella disruzione' } },
+              y: { title: { display: true, text: 'Tempo di risposta (ms)' } }
+            }
+          }
+        });
+      })
+      .catch(err => {
+        document.body.insertAdjacentHTML('beforeend',
+          '<p style="color:#e05d5d">Impossibile caricare results.json: ' + err + '</p>');
+      });
+  </script>
+</body>
+</html>
