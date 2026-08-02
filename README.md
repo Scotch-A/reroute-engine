@@ -36,10 +36,14 @@ Dataset: 20.000 risorse, 10.000 task, 8 tag di qualifica. Mediana di 3 run.
 
 | Scala disruzione | Task coinvolti | Incrementale | Naive    | Speedup | Copertura |
 |-----------------|---------------|-------------|----------|---------|-----------|
-| Piccola         | 100 (1%)      | 11 ms       | 1.785 ms | ~156×   | identica  |
-| Media           | 500 (5%)      | 64 ms       | 1.775 ms | ~28×    | identica  |
-| Grande          | 1500 (15%)    | 196 ms      | 1.844 ms | ~9×     | identica  |
-| Massima demo    | 3000 (30%)    | 448 ms      | 1.819 ms | ~4×     | identica  |
+| Piccola         | 100 (1%)      | 13 ms       | 1.807 ms | ~141×   | identica  |
+| Media           | 500 (5%)      | 61 ms       | 1.778 ms | ~29×    | identica  |
+| Grande          | 1500 (15%)    | 196 ms      | 1.749 ms | ~9×     | identica  |
+| Massima demo    | 3000 (30%)    | 444 ms      | 1.808 ms | ~4×     | identica  |
+
+I tempi assoluti variano con l'hardware e il carico della macchina (lo
+speedup sulla scala più piccola oscilla tra ~140× e ~160× tra un run e
+l'altro); quello che resta stabile è la forma delle due curve.
 
 Il tempo dell'incrementale scala con la disruzione; quello del naive è
 sostanzialmente piatto (proporzionale all'intero problema) indipendentemente

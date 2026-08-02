@@ -1,0 +1,9 @@
+Scale 100 | incremental: 12.8146 ms (91 uncovered) | naive: 1806.55 ms (91 uncovered) | speedup: 140.976x
+Scale 500 | incremental: 61.0708 ms (91 uncovered) | naive: 1778.22 ms (91 uncovered) | speedup: 29.1174x
+Scale 1500 | incremental: 196.189 ms (91 uncovered) | naive: 1748.53 ms (91 uncovered) | speedup: 8.91251x
+Scale 3000 | incremental: 444.239 ms (91 uncovered) | naive: 1808.13 ms (91 uncovered) | speedup: 4.07017x
+
+results.json written to 2 location(s):
+  results.json
+  dashboard/results.json
+Open dashboard/index.html through a local web server (see README) to view the chart.
