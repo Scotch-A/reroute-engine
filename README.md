@@ -261,3 +261,7 @@ Per fermare il server premi `Ctrl+C` nel terminale.
 
 - [2022 Southwest Airlines scheduling crisis — Wikipedia](https://en.wikipedia.org/wiki/2022_Southwest_Airlines_scheduling_crisis)
 - [Southwest Airlines and the anatomy of an IT meltdown — The Air Current](https://theaircurrent.com/airlines/southwest-airlines-anatomy-it-meltdown/)
+
+---
+
+*Built for the ML Empowerment Build Challenge 2.0. Developed with AI pair-programming assistance; all code built, tested and verified end-to-end.*
