@@ -264,4 +264,4 @@ Per fermare il server premi `Ctrl+C` nel terminale.
 
 ---
 
-*Built for the ML Empowerment Build Challenge 2.0. Developed with AI pair-programming assistance; all code built, tested and verified end-to-end.*
+*Built for the Build Beyond Hackathon. Developed with AI pair-programming assistance; all code built, tested and verified end-to-end.*
